@@ -21,4 +21,3 @@ for (let i = 0; i < pianoKeys.length; i++) {
 
 	pianoKeys[i].addEventListener('click', soundPlay);
 }
-
