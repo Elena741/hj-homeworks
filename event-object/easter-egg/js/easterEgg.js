@@ -11,7 +11,7 @@ const chars = [];
 
 function handler (event) {
 	chars.push(event.code);
-	var str = chars.join('');
+	let str = chars.join('');
 
 	if(str.indexOf(secret) != -1) {
 		document.getElementsByClassName('secret')[0].classList.add('visible');
