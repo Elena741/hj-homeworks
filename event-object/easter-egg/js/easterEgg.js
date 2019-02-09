@@ -15,6 +15,7 @@ function handler (event) {
 
 	if(str.indexOf(secret) != -1) {
 		document.getElementsByClassName('secret')[0].classList.add('visible');
+		removeEventListener('keypress', handler);
 	}
 }
 
