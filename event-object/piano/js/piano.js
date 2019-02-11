@@ -5,14 +5,25 @@ const pianoKeysAudio = document.getElementsByTagName('audio');
 for (let i = 0; i < pianoKeys.length; i++) {
 
 	function soundPlay() {
+		const piano = document.getElementsByTagName('ul')[0];
 		const player = pianoKeysAudio[i];
-		player.src = `sounds/middle/${sounds[i]}`;
+		
+		function removeClass() {
+			piano.classList.remove('middle', 'lower', 'higher');
+		}
 
-		if (event.shiftKey) {
-			player.src = `sounds/lower/${sounds[i]}`;	
-		};
-		if (event.altKey) {
-			player.src = `sounds/higher/${sounds[i]}`;	
+		if (!event.shiftKey && !event.altKey) {
+			player.src = `sounds/lower/${sounds[i]}`;
+			removeClass();
+			piano.classList.add('middle');	
+		} else if (event.shiftKey) {
+			player.src = `sounds/lower/${sounds[i]}`;
+			removeClass();
+			piano.classList.add('lower');	
+		} else if (event.altKey) {
+			player.src = `sounds/higher/${sounds[i]}`;
+			removeClass()
+			piano.classList.add('higher');	
 		};
 
 		player.currentTime = 0; 
@@ -20,4 +31,5 @@ for (let i = 0; i < pianoKeys.length; i++) {
 	}
 
 	pianoKeys[i].addEventListener('click', soundPlay);
+	
 }
