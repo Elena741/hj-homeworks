@@ -4,6 +4,22 @@ function loadContacts() {
   return '[{"name":"Василий Николаев","email":"vnikola9999@gmail.com","phone":"+7 999 777 34 34"},{"name":"Елена Вишневская","email":"lenochka22333@yandex.ru","phone":"+7 888 777 11 11"},{"name":"Артём Кузнецов","email":"kuznya_foreva@gmail.com","phone":"+7 222 555 76 67"},{"name":"Алексей Гусенко","email":"jiznboliyaetoznayu@mail.com","phone":"+7 333 545 12 34"},{"name":"Маргарита Сотникова","email":"pobeditelnicapojizni111@gmail.com","phone":"+7 323 534 32 12"}]';
 }
 
+const data = JSON.parse(loadContacts());
+const contactList = document.querySelector('.contacts-list');
+contactList.removeChild(document.querySelector('.contacts-list li'));
+
+for (let i = 0; i < data.length; i++) {
+
+  let newLi = document.createElement('li');
+
+  newLi.innerHTML = `<strong>${data[i].name}</strong>`;
+  newLi.dataset.email = `${data[i].email}`;
+  newLi.dataset.phone = `${data[i].phone}`;
+
+  contactList.appendChild(newLi); 
+
+}
+
 function contactClick(event) {
   let target = null;
   if (event.target.tagName === 'LI') {
