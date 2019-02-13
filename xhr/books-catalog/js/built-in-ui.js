@@ -1,4 +1,30 @@
 /* Данный JS код */
+const list = document.getElementById('content');
+document.getElementsByTagName('li')[0].remove();
+
+const request = new XMLHttpRequest();
+request.open("GET", "https://neto-api.herokuapp.com/book/", true);
+request.send();
+
+request.addEventListener("load", onLoad);
+
+function onLoad() {
+  const response = JSON.parse(request.responseText);
+
+    for (let i = 0; i < response.length; i++) {
+
+      let newLi = document.createElement('li');
+
+      newLi.innerHTML = `<img src="${response[i].cover.small}">`;
+      newLi.dataset.title = response[i].title;
+      newLi.dataset.author = response[i].author.name;
+      newLi.dataset.info = response[i].info;
+      newLi.dataset.price = response[i].price;
+
+      list.appendChild(newLi); 
+
+    }
+}
 
 // Регулируем видимость карточки
 function toggleCardVisible () {
