@@ -5,15 +5,15 @@ const buttonForm = document.querySelectorAll('button')[0];
 const buttonMain = document.querySelectorAll('button')[1];
 const output = document.querySelectorAll('output');
 const inputs = document.querySelectorAll('input, textarea');
-// const message = document.querySelectorAll('textarea')[0];
+
 const library = {};
-// console.log(output.id === 'name');
+
 function see(event) {
 
 	library[event.target.name] = event.target.value;
 
 
-	// buttonForm.disabled = !(Number(Object.keys(library).length) === Number(inputs.length));
+	buttonForm.disabled = !(Number(Object.keys(library).length) === Number(inputs.length));
 
 }
 
@@ -32,7 +32,7 @@ function toggleHidden(event) {
 	main.classList.toggle('hidden');
 }
 
-// message.addEventListener('change', see);
+
 buttonForm.addEventListener('click', toggleHidden);
 buttonMain.addEventListener('click', toggleHidden);
 
