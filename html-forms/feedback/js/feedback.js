@@ -12,8 +12,13 @@ function see(event) {
 
 	library[event.target.name] = event.target.value;
 
-
 	buttonForm.disabled = !(Number(Object.keys(library).length) === Number(inputs.length));
+	
+	for(let out of output) {
+		if(event.target.name === out.id) {
+		out.value = event.target.value;
+		}
+	}
 
 }
 
@@ -37,6 +42,7 @@ buttonForm.addEventListener('click', toggleHidden);
 buttonMain.addEventListener('click', toggleHidden);
 
 for(let out of output) {
-	out.value = library['out.id'];
+	out.value = library[out.id];
 	console.log(out.value);
+	console.log(library[out.id]);
 }
