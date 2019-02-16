@@ -12,6 +12,10 @@ function see(event) {
 
 	library[event.target.name] = event.target.value;
 
+	if(library[event.target.name] === '') {
+		delete library[event.target.name];
+	}
+
 	buttonForm.disabled = !(Number(Object.keys(library).length) === Number(inputs.length));
 	
 	for(let out of output) {
@@ -31,6 +35,7 @@ for(let input of inputs) {
 	input.addEventListener('change', see);
 	
 }
+
 function toggleHidden(event) {
 	event.preventDefault();
 	contentform.classList.toggle('hidden');
@@ -41,8 +46,3 @@ function toggleHidden(event) {
 buttonForm.addEventListener('click', toggleHidden);
 buttonMain.addEventListener('click', toggleHidden);
 
-for(let out of output) {
-	out.value = library[out.id];
-	console.log(out.value);
-	console.log(library[out.id]);
-}
