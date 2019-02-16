@@ -8,7 +8,7 @@ const inputs = document.querySelectorAll('input, textarea');
 
 const library = {};
 
-function see(event) {
+function inputResult(event) {
 
 	library[event.target.name] = event.target.value;
 
@@ -32,10 +32,9 @@ for(let input of inputs) {
 		input.type = "number";
 	}
 
-	input.addEventListener('change', see);
+	input.addEventListener('change', inputResult);
 	
 }
-
 function toggleHidden(event) {
 	event.preventDefault();
 	contentform.classList.toggle('hidden');
@@ -45,4 +44,3 @@ function toggleHidden(event) {
 
 buttonForm.addEventListener('click', toggleHidden);
 buttonMain.addEventListener('click', toggleHidden);
-

@@ -20,6 +20,8 @@ for (let i = 0; i < data.length; i++) {
 
 }
 
+// contactList.innerHTML = "<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>";
+
 function contactClick(event) {
   let target = null;
   if (event.target.tagName === 'LI') {
